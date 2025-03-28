@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moja Cool Stranica</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'impulsStranica/index.css' %}">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="breadcrumb">
+      <span class="početna">Početna</span>
+    </div>
+    
+    <div id="search-root" class="search"></div>
+    
+    <div class="profile">
+      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Profil" />
+    </div>
+  </div>
+
+  <div style="height: 80px;"></div>
+
+  <main class="center-content">
+    <h1>Dobrodošao!</h1>
+  </main>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="{% static 'impulsStranica/index.js' %}"></script>
+</body>
+</html>
