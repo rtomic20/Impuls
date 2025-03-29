@@ -1,10 +1,15 @@
 from django.urls import path
-from .views import home
-app_name="ImpulsStranica"
+from . import views
 
-glavnic_urls=[
-    path('',home,name='home')
+app_name = "ImpulsStranica"
+
+glavnic_urls = [
+    path('', views.home, name='home'),
 ]
 
-urlpatterns = glavnic_urls
+registracija_urls = [
+    path('login/', views.login_view, name='login'),
+    path('register/', views.register_view, name='register'),
+]
 
+urlpatterns = glavnic_urls + registracija_urls

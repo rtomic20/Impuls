@@ -1,65 +1,133 @@
+/* ========== TOP BAR ========== */
 .top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    padding: 0 20px; 
-    width: 100%; 
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: rgba(229, 80, 235, 0.3); 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-    box-sizing: border-box; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(70, 0, 82, 0.75);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  box-sizing: border-box;
 }
-  
-  .profile {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    min-width: 40px; 
-  }
-  
-  .profile img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .search {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    margin: 0 20px;
-    max-width: 600px; 
-  }
-  
-  .breadcrumb {
-    display: flex;
-    flex-direction: column;
-    font-size: 12px;
-    color: #0b060c;
-    white-space: nowrap;
-    cursor: pointer;
-    margin-left: 0; /* Dodano */
-    padding-left: 0; /* Dodano */
-  }
-  
-  .breadcrumb:hover {
-    border: 1px solid #734ce8;
-    border-radius: 3px;
-  }
-  
-  .pocetna{
-    color: #000000;
-    margin-left: 0; /* Uklonimo dodatni razmak */
+
+/* Spacer da sadržaj ne ide ispod top bar-a */
+.top-bar-spacer {
+  height: 60px;
 }
-  
+
+/* ========== BREADCRUMB (left) ========== */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.pocetna {
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 10px 12px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ========== SITE TITLE (center) ========== */
+.site-title {
+  flex: 1;
+  text-align: center;
+  color: white;
+}
+
+.site-title h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+/* ========== SEARCH (right) ========== */
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.search input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 15px;
+  width: 160px;
+  max-width: 100%;
+  outline: none;
+}
+
+/* ========== MAIN CONTENT ========== */
+.center-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  display: block; 
+}
+
+body {
+  background-color: rgba(70, 0, 82, 0.35); 
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media screen and (max-width: 768px) {
+  .site-title h1 {
+    font-size: 16px;
+  }
+
+  .search input {
+    width: 100px;
+  }
+
   .center-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - 100px);
+    font-size: 15px;
+    padding: 20px 15px;
   }
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prijava</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'login_register_styles/login_register.css' %}">
+</head>
+<body>
+  <div class="auth-container">
+    <h2>Prijava</h2>
+    {% if messages %}
+      {% for message in messages %}
+        <p style="color:red">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Korisničko ime" required><br><br>
+        <input type="password" name="password" placeholder="Lozinka" required><br><br>
+        <button type="submit">Prijavi se</button>
+    </form>
+    <p>Nemaš račun? <a href="{% url 'ImpulsStranica:register' %}">Registriraj se</a></p>
+
+  </div>
+  
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="{% static 'login_register_styles/login_register.js' %}"></script>
+</body>
+</html>

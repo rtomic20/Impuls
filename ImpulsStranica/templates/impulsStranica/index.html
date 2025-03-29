@@ -2,27 +2,62 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Moja Cool Stranica</title>
+  <title>Impuls</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'impulsStranica/index.css' %}">
 </head>
 <body>
   <div class="top-bar">
     <div class="breadcrumb">
-      <span class="početna">Početna</span>
+      <div class="dropdown">
+        <span class="pocetna">Početna</span>
+        <div class="dropdown-content">
+          <a href="#">Radovi</a>
+          <a href="#">Upute</a>
+          <a href="{% url 'ImpulsStranica:login' %}">Prijava</a>
+        </div>
+      </div>
     </div>
-    
-    <div id="search-root" class="search"></div>
-    
-    <div class="profile">
-      <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Profil" />
+
+    <div class="site-title">
+      <h1>Impuls</h1>
+    </div>
+
+    <div id="search-root" class="search">
+      <input type="text" placeholder="Pretraži..." />
     </div>
   </div>
 
-  <div style="height: 80px;"></div>
+  <!-- Spacer za top bar -->
+  <div class="top-bar-spacer"></div>
 
   <main class="center-content">
-    <h1>Dobrodošao!</h1>
+    <p>
+      💫 <strong>IMPULS – Studentski časopis udruge Psirius</strong><br><br>
+      Mjesto gdje psihološke ideje dobiju glas. I papir.<br><br>
+
+      Dobro došli u svijet Impulsa – studentskog časopisa koji je puno više od skupa istraživačkih radova. Nastao je iz entuzijazma, znatiželje i želje za učenjem
+
+      – pokrenut od strane studenata psihologije udruge Psirius, ovaj projekt već godinama okuplja radove koji su proizašli iz znanstvene znatiželje, kreativnosti i hrabrosti da se mišljenje pretoči u riječi.<br><br>
+
+      Prvo izdanje izašlo je još davne 2016./2017., a do danas smo došli do pet izdanja punih zanimljivih i raznolikih tema iz svih kutaka psihologije. <br><br>
+      
+      Tu ćete pronaći sve – od pitanja emocija, prijateljstva i humora, pa do forenzike, kvantne teorije i oslikavanja mozga. Da, i to je psihologija!<br><br>
+
+      No Impuls nije samo časopis. On je vjetar u leđa. Sigurna platforma za studente koji žele isprobati kako je to pisati znanstveni rad, proći recenzije, raditi s mentorima i naučiti nešto više – o psihologiji, ali i o sebi.<br><br>
+
+      Zato, ako si student psihologije, bez obzira jesi li na prvoj ili petoj godini, znaj da si ovdje dobrodošao/la. Možeš pisati, recenzirati, uređivati, čitati, diskutirati... Ili jednostavno pronaći ideju za svoj budući rad.<br><br>
+      
+    Naš urednički tim otvoren je, podržavajući i spreman učiti zajedno s tobom. Ne tražimo iskustvo – samo znatiželju, volju i malo hrabrosti da zakoračiš izvan svoje komfor zone.<br><br>
+
+  Tisak časopisa omogućuje nam Studentski zbor Sveučilišta u Rijeci i uz podršku Odsjeka za psihologiju – hvala im što iz godine u godinu prepoznaju vrijednost ovog projekta.<br><br>
+
+  A publika? Pa, tu su studenti, profesori, obitelji autora (pozdrav svim mamama, tatama i bakama 👋), bivši studenti koji se rado vraćaju vidjeti što nova generacija stvara, ali i svi oni koje jednostavno zanima psihologija.<br><br>
+
+Impuls je tvoj prostor. Tvoj glas. Tvoja priča.
+Ako si ikad pomislio/la "možda bih mogao/mogla nešto napisati" – možda je upravo sad taj trenutak.
+
+    </p>
   </main>
 
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
