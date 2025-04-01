@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <title>Impuls</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'korisnik_stil/korisnik_main.css' %}">
+</head>
+<body>
+  <div class="top-bar">
+    <div class="breadcrumb">
+      <!-- Lijeva strana prazna -->
+    </div>
+
+    <div class="site-title">
+      <h1>Impuls</h1>
+    </div>
+
+    <div id="search-root" class="search">
+      {% if user.is_authenticated %}
+        <div class="user-menu">
+          {{ user.username }} ▼
+          <div class="dropdown-content">
+            <a href="#">Profil</a>
+            <a href="#">Postavke</a>
+            <form method="post" action="{% url 'ImpulsStranica:logout' %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit" style="background:none; border:none; color:inherit; cursor:pointer; padding: 10px 12px; width: 100%; text-align: left;">
+                  Odjava
+                </button>
+              </form>
+          </div>
+        </div>
+      {% else %}
+        <input type="text" placeholder="Pretraži..." />
+      {% endif %}
+    </div>
+  </div>
+
+  <div class="top-bar-spacer"></div>
+
+  <!--<main class="center-content">
+  </main>-->
+</body>
+</html>

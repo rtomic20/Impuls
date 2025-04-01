@@ -19,6 +19,7 @@ body {
   max-width: 400px;
   text-align: center;
   box-sizing: border-box;
+  position: relative;
 }
 
 .auth-container h2 {
@@ -72,4 +73,49 @@ form button:hover {
 
 .auth-footer a:hover {
   text-decoration: underline;
+}
+.back-arrow {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  font-size: 24px;
+  text-decoration: none;
+  color: #00796b;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-size: 30px;          
+  font-weight: bold; 
+}
+
+.back-arrow:hover {
+  color: #004d40;
+}
+/* === PASSWORD TOGGLE === */
+.password-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding: 0.75rem;
+  padding-right: 2.5rem; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #777;
+  font-size: 1.1rem;
+}
+
+.toggle-password:hover {
+  color: #333;
 }

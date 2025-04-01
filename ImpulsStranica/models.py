@@ -1,6 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.core.exceptions import ValidationError
+import os
 
+def validate_word_file(file):
+    ext = os.path.splitext(file.name)[1]  # npr. '.docx'
+    valid_extensions = ['.doc', '.docx']
+    if ext.lower() not in valid_extensions:
+        raise ValidationError("Dozvoljeni su samo Word fajlovi (.doc ili .docx).")
+
+def upload_to_user(instance, filename):
+    return f"uploads/{instance.user.username}/{filename}"
 # Admin
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None, user_type="korisnik", **extra_fields):
@@ -50,9 +60,9 @@ def upload_to_user(instance, filename):
     return f"uploads/{instance.user.username}/{filename}"
 
 class Work(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
-    file = models.FileField(upload_to=upload_to_user)
+    file = models.FileField(upload_to=upload_to_user, validators=[validate_word_file])
     uploaded_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

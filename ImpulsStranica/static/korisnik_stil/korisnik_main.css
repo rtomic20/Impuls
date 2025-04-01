@@ -1,0 +1,137 @@
+/* ========== TOP BAR ========== */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(70, 0, 82, 0.75);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  box-sizing: border-box;
+}
+
+.top-bar-spacer {
+  height: 60px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+}
+
+.site-title {
+  flex: 1;
+  text-align: center;
+  color: white;
+}
+
+.site-title h1 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.search {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+/* === USER MENU === */
+.user-menu {
+  position: relative;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 10px;
+}
+
+/* Izmjena: dropdown sada uvijek ostaje unutar top bar-a */
+.user-menu .dropdown-content {
+  display: none;
+  position: absolute;
+  top: calc(100% + 5px); /* malo razmaka ispod korisničkog imena */
+  right: 0;
+  background-color: white;
+  color: black;
+  min-width: 140px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  z-index: 1001;
+  overflow: hidden;
+}
+
+.user-menu:hover .dropdown-content {
+  display: block;
+}
+
+/* LINKOVI I GUMBI UNUTAR DROPDOWN-a */
+.user-menu .dropdown-content a,
+.user-menu .dropdown-content button {
+  display: block;
+  width: 100%;
+  padding: 10px 14px;
+  text-align: left;
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: black;
+  font: inherit;
+  font-weight: normal;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.user-menu .dropdown-content a:hover,
+.user-menu .dropdown-content button:hover {
+  background-color: #f0f0f0;
+}
+
+/* === SEARCH INPUT === */
+.search input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 15px;
+  width: 160px;
+  max-width: 100%;
+  outline: none;
+}
+
+/* === CENTER CONTENT === */
+.center-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 30px;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+  text-align: justify;
+  display: block;
+}
+
+body {
+  background-color: rgba(70, 0, 82, 0.35);
+  margin: 0;
+  padding: 0;
+}
+
+/* ========== RESPONSIVE ========== */
+@media screen and (max-width: 768px) {
+  .site-title h1 {
+    font-size: 16px;
+  }
+
+  .search input {
+    width: 100px;
+  }
+
+  .center-content {
+    font-size: 15px;
+    padding: 20px 15px;
+  }
+}
