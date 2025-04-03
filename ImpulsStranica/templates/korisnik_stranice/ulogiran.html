@@ -39,7 +39,32 @@
 
   <div class="top-bar-spacer"></div>
 
-  <!--<main class="center-content">
-  </main>-->
+  <main class="upload-section">
+    <button class="upload-button" id="show-form-btn">Dodaj</button>
+    <!-- Forma koja se skriva dok se ne klikne -->
+    <form id="upload-form" method="POST"  action="{% url 'ImpulsStranica:upload_work' %}" enctype="multipart/form-data" style="display: none;">
+      {% csrf_token %}
+      
+      <!-- Naslov -->
+      <input type="text" id="title-input" name="title" placeholder="Unesi naslov..." class="text-input" required />
+    
+      <!-- Upload box -->
+      <div class="upload-box" id="upload-box" onclick="document.getElementById('doc-upload').click()">
+        <span id="upload-text">+</span>
+      </div>
+    
+      <!-- Skriveni file input -->
+      <input type="file" id="doc-upload" name="file"
+             accept=".doc,.docx,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+             style="display: none" required />
+    
+      <!-- Submit -->
+      <button type="submit" class="upload-button">Pošalji</button>
+    </form>
+  </main>
+
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="{% static 'korisnik_stil/korisnik_main.js' %}"></script>
 </body>
 </html>

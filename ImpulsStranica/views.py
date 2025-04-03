@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
-from .models import User
+from .models import User,Work
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -34,3 +34,19 @@ def register_view(request):
 @login_required
 def ulogiran_view(request):
     return render(request, 'korisnik_stranice/ulogiran.html')
+
+@login_required
+def upload_work(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        file = request.FILES.get('file')
+
+        if title and file:
+            work = Work.objects.create(
+                user=request.user,
+                title=title,
+                file=file
+            )
+            return redirect('ImpulsStranica:ulogiran') 
+
+    return render(request, 'ImpulsStranica:ulogiran')

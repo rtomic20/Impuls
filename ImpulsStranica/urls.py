@@ -15,6 +15,7 @@ glavnic_urls = [
 korisnik_funk=[
     path('ulogiran/', views.ulogiran_view, name='ulogiran'),
     path('logout/', LogoutViewAllowGET.as_view(next_page='ImpulsStranica:home'), name='logout'),
+    path('upload/', views.upload_work, name='upload_work'),
 ]
 registracija_urls = [
     path('login/', views.login_view, name='login'),
