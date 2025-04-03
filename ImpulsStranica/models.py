@@ -57,13 +57,14 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.user_type == 'korisnik'
 
 def upload_to_user(instance, filename):
-    return f"uploads/{instance.user.username}/{filename}"
+    return f"{instance.user.username}/{filename}"
 
 class Work(models.Model):
     user = models.ForeignKey('User', on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     file = models.FileField(upload_to=upload_to_user, validators=[validate_word_file])
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
     def __str__(self):
         return f"{self.title} ({self.user.username})"

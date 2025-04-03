@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impuls</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'impulsStranica/index.css' %}">
@@ -12,8 +13,9 @@
       <div class="dropdown">
         <span class="pocetna">Početna</span>
         <div class="dropdown-content">
-          <a href="#">Radovi</a>
+          <a href="#">Radovi za čitanje</a>
           <a href="#">Upute</a>
+          <a href="#">Naša zajednica</a>
           <a href="{% url 'ImpulsStranica:login' %}">Prijava</a>
         </div>
       </div>
@@ -21,10 +23,6 @@
 
     <div class="site-title">
       <h1>Impuls</h1>
-    </div>
-
-    <div id="search-root" class="search">
-      <input type="text" placeholder="Pretraži..." />
     </div>
   </div>
 

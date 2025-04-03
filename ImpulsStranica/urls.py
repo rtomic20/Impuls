@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 from django.contrib.auth.views import LogoutView
+from django.conf import settings
+from django.conf.urls.static import static
 
 class LogoutViewAllowGET(LogoutView):
     def get(self, request, *args, **kwargs):
@@ -22,4 +24,4 @@ registracija_urls = [
     path('register/', views.register_view, name='register'),
 ]
 
-urlpatterns = glavnic_urls + registracija_urls+ korisnik_funk
+urlpatterns = glavnic_urls + registracija_urls+ korisnik_funk + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

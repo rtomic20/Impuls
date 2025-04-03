@@ -2,6 +2,7 @@
 <html lang="hr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Impuls</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'korisnik_stil/korisnik_main.css' %}">
@@ -59,10 +60,45 @@
              style="display: none" required />
     
       <!-- Submit -->
-      <button type="submit" class="upload-button">Pošalji</button>
+      <div class="form-buttons">
+        <button type="submit" class="btn">Pošalji</button>
+        <button type="button" class="btn cancel-btn" onclick="window.location.href='{% url 'ImpulsStranica:ulogiran' %}'">Odustani</button>
+      </div>
     </form>
   </main>
-
+<!--Data grid pogled-->
+ <div class="table-wrapper">
+  {% if user_works %}
+    <table class="file-table">
+      <thead>
+        <tr>
+          <th>Naslov</th>
+          <th>Datum</th>
+          <th>Status</th>
+          <th>Dokument</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for work in user_works %}
+          <tr>
+            <td>{{ work.title }}</td>
+            <td>{{ work.uploaded_at|date:"d.m.Y H:i" }}</td>
+            <td>
+              {% if work.approved %}
+                ✅ Odobreno
+              {% else %}
+                ⏳ Na čekanju
+              {% endif %}
+            </td>
+            <td><a href="{{ work.file.url }}" target="_blank">📄 Otvori</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Nema poslanih radova.</p>
+  {% endif %}
+</div>
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="{% static 'korisnik_stil/korisnik_main.js' %}"></script>

@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // --- Upload funkcionalnosti ---
   const showFormBtn = document.getElementById("show-form-btn");
   const form = document.getElementById("upload-form");
   const input = document.getElementById("doc-upload");
   const uploadBox = document.getElementById("upload-box");
   const uploadText = document.getElementById("upload-text");
 
-  // Prikaz forme kada se klikne "Dodaj"
   if (showFormBtn && form) {
     showFormBtn.addEventListener("click", function () {
       form.style.display = "flex";
@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Prikaz imena datoteke kada je odabrana
   if (input && uploadText) {
     input.addEventListener("change", function () {
       if (input.files.length > 0) {
@@ -29,7 +28,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Drag & drop funkcionalnost
   if (uploadBox) {
     uploadBox.addEventListener("dragover", function (e) {
       e.preventDefault();

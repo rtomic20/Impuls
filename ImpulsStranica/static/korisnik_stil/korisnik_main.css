@@ -176,6 +176,77 @@ body {
   box-sizing: border-box;
 }
 
+.form-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+/* Pošalji gumb – tamna ljubičasta */
+.submit-btn {
+  background-color: #4b0053;
+  color: white;
+}
+
+.submit-btn:hover {
+  background-color: #37003d;
+}
+
+/* Odustani gumb – svijetlija ljubičasta/siva nijansa */
+.cancel-btn {
+  background-color: #a17aa5;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #8d6991;
+}
+
+.table-wrapper {
+  max-width: 1000px;
+  margin: 60px auto 0 auto; /* spušteno niže i centrirano */
+  padding: 0 20px;
+}
+
+.file-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background-color: white;
+}
+
+.file-table th,
+.file-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.file-table th {
+  background-color: #4b0053;
+  color: white;
+}
+
+.file-table tr:hover {
+  background-color: #f5e5ff;
+}
+
 /* ========== RESPONSIVE ========== */
 @media screen and (max-width: 768px) {
   .site-title h1 {

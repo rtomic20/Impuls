@@ -50,3 +50,8 @@ def upload_work(request):
             return redirect('ImpulsStranica:ulogiran') 
 
     return render(request, 'ImpulsStranica:ulogiran')
+
+@login_required
+def ulogiran_view(request):
+    user_works = Work.objects.filter(user=request.user).order_by('-uploaded_at')
+    return render(request, 'korisnik_stranice/ulogiran.html', {'user_works': user_works})
