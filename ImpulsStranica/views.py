@@ -3,6 +3,10 @@ from django.contrib.auth import authenticate, login
 from .models import User,Work
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+import os
+from django.http import FileResponse
+
 
 def home(request):
     return render(request,'impulsStranica/index.html')
@@ -55,3 +59,12 @@ def upload_work(request):
 def ulogiran_view(request):
     user_works = Work.objects.filter(user=request.user).order_by('-uploaded_at')
     return render(request, 'korisnik_stranice/ulogiran.html', {'user_works': user_works})
+
+def Impuls_overview(request):
+    return render(request, 'impulsStranica/upute.html')
+
+def download_Impuls(request):
+    file_path = os.path.join(
+        settings.BASE_DIR, 'ImpulsStranica', 'static', 'pdfs', 'APA standardi prilikom pisanja rada_24_25.pdf'
+    )
+    return FileResponse(open(file_path, 'rb'), as_attachment=True, filename='APA_standardi.pdf')

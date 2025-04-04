@@ -12,6 +12,8 @@ app_name = "ImpulsStranica"
 
 glavnic_urls = [
     path('', views.home, name='home'),
+    path('download/', views.download_Impuls, name='download'),
+    path('upute/', views.Impuls_overview, name='upute'),
 ]
 
 korisnik_funk=[
