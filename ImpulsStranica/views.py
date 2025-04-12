@@ -11,6 +11,9 @@ from django.http import FileResponse
 def home(request):
     return render(request,'impulsStranica/index.html')
 
+def radovi(request):
+    return render(request, 'impulsStranica/radovi.html')
+
 def login_view(request):
     if request.method == 'POST':
         username = request.POST['username']

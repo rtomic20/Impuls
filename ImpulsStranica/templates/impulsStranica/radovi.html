@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>Radovi za čitanje - Impuls</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'impulsStranica/radovi.css' %}">
+<body>
+
+    <h2>Radovi za čitanje</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Naziv rada</th>
+                <th>Pregled</th>
+                <th>Preuzmi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Impuls 2021</td>
+                <td><button onclick="loadPDF('{% static 'pdfs/impuls_2021.pdf' %}')">Prikaži</button></td>
+                <td><a href="{% static 'pdfs/impuls_2021.pdf' %}" download>Preuzmi</a></td>
+            </tr>
+            <tr>
+                <td>Impuls 2020</td>
+                <td><button onclick="loadPDF('{% static 'pdfs/impuls_2020.pdf' %}')">Prikaži</button></td>
+                <td><a href="{% static 'pdfs/impuls_2020.pdf' %}" download>Preuzmi</a></td>
+            </tr>
+            <tr>
+                <td>Impuls 2016</td>
+                <td><button onclick="loadPDF('{% static 'pdfs/impuls_2016.pdf' %}')">Prikaži</button></td>
+                <td><a href="{% static 'pdfs/impuls_2016.pdf' %}" download>Preuzmi</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <iframe id="pdf-viewer" src=""></iframe>
+    
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="{% static 'impulsStranica/radovi.js' %}"></script>
+</body>
+</html>
